@@ -1,1 +1,1 @@
-# udacity-memory-game
+# UDACITY Memory Game Project 
