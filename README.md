@@ -19,7 +19,7 @@ After all the cards have been match, a game user statistics will show the total 
 1. Download or clone the Repository.
 2. Open index.html file view the project in the browser.
 
-Visit: https://jdelosreyes888.github.io/udacity-memory-game/
+To play online visit: https://jdelosreyes888.github.io/udacity-memory-game/
 
 ## How to play:
 
