@@ -1,0 +1,232 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 100%;
+    max-width: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    margin-bottom: 10px;
+}
+
+.deck .card.open {
+    transform: rotateY(20);
+    background: #02b3e4;
+    cursor: default;
+    animation: shake 0.5s;
+    /* When the animation is finished, start again */
+    animation-iteration-count: 1;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+    pointer-events: none;
+}
+
+.close {
+    animation: shake 1.5s;
+    /* When the animation is finished, start again */
+    animation-iteration-count: 1;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    display: flex;
+    width: 100%;
+    max-width: 680px; 
+    justify-content: space-around;
+    margin-bottom: 10px;
+    /* border: 1px solid red; */
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    cursor: pointer;
+}
+
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.lock {
+    pointer-events: none;
+}
+
+
+/* Game User Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index:1;
+    left: 0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+  
+.modalBody {
+    border: 1px solid red;
+    background-color:#f4f4f4;
+    margin: auto;
+    width: 70%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+    animation-name: modalopen;
+    animation-duration: 1s;
+}
+  
+.modalHeader h2 {
+    margin: 0;
+}
+  
+.modalContent {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 20px;
+}
+
+.modalHeader{
+    background:coral;
+    padding: 10px;
+    padding-top: 0;
+    color:#fff;
+}
+
+.closeModal{
+    color:#ccc;
+    float: right;
+    font-size:30px;
+    color:#fff;
+}
+  
+.closeModal:hover,.closeBtn:focus{
+    color:#000;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.btnPlay{
+    background:coral;
+    padding: 1em 2em;
+    color:#fff;  
+}
+  
+.btnPlay:hover{
+    background:#333;
+}  
+
+@media only screen and (max-width: 700px) {
+    .deck .card {
+        width: 75px;
+        height: 75px;
+    }
+
+    .fa {
+        font-size: 0.55em;
+    }
+
+    .score-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .deck .card {
+        width: 55px;
+        height: 55px;
+    }
+    
+}
