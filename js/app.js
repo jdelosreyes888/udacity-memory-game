@@ -140,11 +140,6 @@ function compareCards() {
                 removeStars();
                 break;
             }
-        case 40:
-            {
-                removeStars();
-                break;
-            }
     }
 
     // Empty the card array for another selections 
